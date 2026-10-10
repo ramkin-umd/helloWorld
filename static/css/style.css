@@ -1,0 +1,34 @@
+/* 1. Style all paragraphs with at least two rules */
+p {
+    color: darkblue;
+    font-size: 18px;
+}
+
+/* 2. Style all level two headers with at least two rules */
+h2 {
+    color: maroon;
+    font-style: italic;
+}
+
+/* 3. Style all tables to include a border with a border color */
+table, td, th {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+/* 4. Select the third paragraph by ID and include at least two rules */
+#third-para {
+    background-color: lightgray;
+    padding: 10px;
+}
+
+/* 5. Create a new CSS rule block based off a class attribute */
+.intro-text {
+    font-weight: bold;
+}
+
+/* 6. Named rule block for img tags to replace the HTML width/height */
+img.logo {
+    width: 267px;
+    height: 72px;
+}
