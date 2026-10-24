@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block page_title %}Contact{% endblock %}
+
+{% block page_head %}Contact Me{% endblock %}
+
+{% block page_content %}
+    <!-- If the form was submitted, regurgitate the data -->
+    {% if form_submitted %}
+        <h2>Thank you for completing my form!</h2>
+        <div class="mt-4">
+            <p><strong>First Name:</strong> {{ request.form.get('first_name') }}</p>
+            <p><strong>Last Name:</strong> {{ request.form.get('last_name') }}</p>
+            <p><strong>Email:</strong> {{ request.form.get('email') }}</p>
+            <p><strong>Major:</strong> {{ request.form.get('major') }}</p>
+        </div>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary mt-3">Complete form again</a>
+        
+    <!-- Otherwise, show the Bootstrap form -->
+    {% else %}
+        <form class="row g-3" action="{{ url_for('contact') }}" method="post">
+            <div class="col-md-6">
+                <label for="first_name" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
+            </div>
+            <div class="col-md-6">
+                <label for="last_name" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
+            </div>
+            <div class="col-12">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <!-- The required 4th additional field -->
+            <div class="col-12">
+                <label for="major" class="form-label">Major</label>
+                <input type="text" class="form-control" id="major" name="major" required>
+            </div>
+            <div class="col-12 mt-3">
+                <button type="submit" class="btn btn-primary">Submit Form</button>
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}
